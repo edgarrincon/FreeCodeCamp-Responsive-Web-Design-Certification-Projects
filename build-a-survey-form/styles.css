@@ -1,0 +1,88 @@
+body {
+  --background-c: #0a0a23;
+  background-color: var(--background-c, lightgray);
+  display: flex;
+  flex-direction: column;
+  font-family: monospace, Helvetica, sans-serif;
+}
+
+@media (max-width: 400px) {
+  body {
+    font-size: 13px;
+  }
+}
+
+header {
+  background-color: var(--background-c, lightgray);
+  width: 100%;
+  z-index: 1;
+}
+
+main {
+  background-color: hsl(200, 60%, 100%);
+  margin: 2rem auto;
+  padding: 10px auto;
+}
+
+.title-text {
+  margin-top: 1.5rem;
+  text-align: center;
+  color: #f5f6f7;
+}
+
+#description {
+  margin-top: 10px;
+}
+
+#survey-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#survey-fields {
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  display: grid;
+  grid-gap: 10px;
+}
+
+@media (max-width: 600px) {
+  #survey-fields {
+    grid-template-columns: 1fr;
+  }
+  label {
+    text-align: left;
+  }
+}
+
+@media (min-width: 600px) {
+  #survey-fields {
+    grid-template-columns: 1fr 1fr;
+  }
+  label {
+    text-align: right;
+  }
+}
+
+fieldset {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  border: 0;
+  min-width: 100%;
+}
+
+fieldset label:hover {
+  font-weight: bold;
+}
+
+#submit {
+  margin: auto;
+  background-color: lightgray;
+  padding: 25px 50px;
+  font-size: 95%;
+  font-family: monospace, Helvetica, sans-serif;
+}
