@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>suma</title>
+  </head>
+  <body>
+    <span id="countdown"></span>
+    <p id="suma"></p>
+    <input type="number" placeholder="numero" id="culculoUser" />
+    <button type="button" onclick="comprobar()">comprobar</button>
+    <button type="button" onclick="numeros()">numeros</button>
+    <p id="salidas"></p>
+    <p id="resultado"></p>
+    <p id="operador"></p>
+    <p id="res"></p>
+    <p id="aciertos"></p>
+  </body>
+
+  <script>
+    window.onload = updateClock;
+
+    var totalTime = 60;
+
+    function updateClock() {
+      document.getElementById("countdown").innerHTML = totalTime;
+      if (totalTime == 0) {
+        alert("se acabó el tiempo nene");
+      } else {
+        totalTime -= 1;
+        setTimeout("updateClock()", 1000);
+      }
+    }
+
+    var res;
+    function numeros() {
+      let numeroAleatorio = Math.ceil(Math.random() * 20);
+
+      let numeroAleatorio2 = Math.ceil(Math.random() * 20);
+
+      let operators = ["+", "-", "*", "/"];
+
+      op = operators[Math.floor(Math.random() * 4)];
+
+      switch (op) {
+        case "+":
+          res = numeroAleatorio + numeroAleatorio2;
+          break;
+        case "-":
+          res = numeroAleatorio - numeroAleatorio2;
+          break;
+        case "*":
+          res = numeroAleatorio * numeroAleatorio2;
+          break;
+        case "/":
+          res = numeroAleatorio / numeroAleatorio2;
+          break;
+      }
+
+      console.log(res);
+
+      let suma = numeroAleatorio + " " + op + " " + numeroAleatorio2;
+
+      document.getElementById("suma").innerHTML = suma;
+    }
+
+    var aciertos = 0;
+
+    function comprobar() {
+      let numero = document.getElementById("culculoUser").value;
+
+      if (numero == res) {
+        aciertos++;
+        document.getElementById("salidas").innerHTML =
+          "🎉 🚀🎉💯 eso es correcto Villalópez ¡FELICIDADES! 🎉 🚀🎉💯";
+      } else {
+        aciertos = aciertos - 1;
+        document.getElementById("salidas").innerHTML =
+          "tes has pelao chaval... 😳😳😳 ese no es resultdo";
+      }
+      console.log(aciertos);
+      document.getElementById("aciertos").innerHTML = aciertos;
+    }
+  </script>
+</html>
